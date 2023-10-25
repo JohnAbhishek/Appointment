@@ -33,7 +33,9 @@
 <div class="col-md-3 mx-3">
               <div class="card-body border">
                 <h5 class="card-title">{{this.Appointmentcount}}</h5>
-                <p class="card-text">{{this.Time}}</p>
+                <p class="card-text"><b>Start Time:</b>{{this.Time}}</p>
+                                <p class="card-text"><b>End Time:</b>{{this.EndTime}}</p>
+
                 <button class="btn btn-success" onclick="window.location.href = '/edit/{{this.Appointmentcount}}'">Edit</button>
                            <button  onclick="window.location.href = '/remove-appoint/{{this.Appointmentcount}}'" class="btn btn-danger">Remove</button>
 

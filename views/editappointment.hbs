@@ -23,13 +23,16 @@
             <form action="/update-appoint/{{appointment.Appointmentcount}}" method="post">
               <div class="form-group">
                 <label for="title">Id</label>
-                <input type="text" value="{{appointment.Appointmentcount}}" class="form-control" id="title" name="title" required>
+                <input type="number" value="{{appointment.Appointmentcount}}" class="form-control" id="title" name="title" required>
               </div>
               <div class="form-group">
-                <label for="time">Time</label>
+                <label for="time">Start Time</label>
                 <input type="text" value="{{appointment.Time}}"  class="form-control" id="time" name="time" required>
               </div>
-              
+               <div class="form-group">
+                <label for="time">End Time</label>
+                <input type="text" value="{{appointment.EndTime}}"  class="form-control" id="time" name="time" required>
+              </div>
               <button type="submit" class="btn btn-primary">Update Appointment</button>
             </form>
           </div>

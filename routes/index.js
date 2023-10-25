@@ -12,9 +12,11 @@ router.get('/add', function(req, res, next) {
   res.render('addappointment');
 });
 router.post('/add-appoint', function (req, res, next) {
+  console.log(req.body,"req");
   const newAppointment = {
     Appointmentcount: req.body.title,
-    Time: req.body.time,
+    Time: req.body.starttime,
+    EndTime:req.body.endtime
   };
   const isTimeConflict = appointments.some(appointment => appointment.Time === newAppointment.Time);
   if(isTimeConflict){
@@ -52,13 +54,13 @@ router.get('/edit/:id', function (req, res, next) {
 router.post('/update-appoint/:id', function (req, res, next) {
   const appointmentId = parseInt(req.params.id);
   const appointmentToEdit = appointments.find(appointment => appointment.Appointmentcount === appointmentId.toString());
-
+console.log(req.body,"hiiii");
   if (!appointmentToEdit) {
     res.status(404).send("Appointment not found");
   } else {
     appointmentToEdit.Appointmentcount = req.body.title;
-    appointmentToEdit.Time = req.body.time;
-    
+    appointmentToEdit.Time = req.body.time[0];
+    appointmentToEdit.EndTime = req.body.time[1];
     res.redirect('/');
   }
 });
