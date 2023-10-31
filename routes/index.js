@@ -3,6 +3,7 @@ var router = express.Router();
 
 var appointments=[
 ]
+var count=0
 router.get('/', function(req, res, next) {
  
   res.render('index', { appointments });

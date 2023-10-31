@@ -1,75 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/css/tempusdominus-bootstrap-4.min.css">
+    <!-- Include Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
     
     <title>Hello, world!</title>
   </head>
   <body>
-   
     <section>
-        <div class="text-center flex-1">
-            <h1>Add Appointment</h1>
-        </div>
-      <div class="container mt-5">
-        <div class="row">
-          <div class="col-md-6 mx-auto">
-            <form action="/add-appoint" method="post">
-              <div class="form-group">
-                <label for="title">Id</label>
-                <input type="number" class="form-control" id="title" name="title" required>
-              </div>
-              <div class="form-group">
-                <label for="start-time">Start Time</label>
-                <div class="input-group date" id="start-timepicker" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#start-timepicker" id="starttime" name="starttime" required>
-                    <div class="input-group-append" data-target="#start-timepicker" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-clock"></i></div>
-                    </div>
+      <div class="text-center flex-1">
+        <h1 class="text-2xl font-semibold">Add Appointment</h1>
+      </div>
+      <div class="container mx-auto mt-5">
+        <div class="w-full md:w-1/2 lg:w-1/3 mx-auto">
+          <form action="/add-appoint" method="post">
+            <div class="mb-4">
+              <label for="title" class="block text-sm font-medium text-gray-700">Id</label>
+              <input type="number" id="title" name="title" required
+                class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50">
+            </div>
+            <div class="mb-4">
+              <label for="start-time" class="block text-sm font-medium text-gray-700">Start Time</label>
+              <div class="input-group date" id="start-timepicker" data-target-input="nearest">
+                <input type="text" id="starttime" name="starttime" required
+                  class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
+                <div class="input-group-append" data-target="#start-timepicker" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-clock"></i></div>
                 </div>
               </div>
-              <div class="form-group">
-                <label for="end-time">End Time</label>
-                <div class="input-group date" id="end-timepicker" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#end-timepicker" id="endtime" name="endtime" required>
-                    <div class="input-group-append" data-target="#end-timepicker" data-toggle="datetimepicker">
-                        <div class="input-group-text"><i class="fa fa-clock"></i></div>
-                    </div>
+            </div>
+            <div class="mb-4">
+              <label for="end-time" class="block text-sm font-medium text-gray-700">End Time</label>
+              <div class="input-group date" id="end-timepicker" data-target-input="nearest">
+                <input type="text" id="endtime" name="endtime" required
+                  class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
+                <div class="input-group-append" data-target="#end-timepicker" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-clock"></i></div>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary">Add Appointment</button>
-            </form>
-          </div>
+            </div>
+            <button type="submit" class="w-full px-4 py-2 mt-4 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:ring focus:ring-opacity-50">Add Appointment</button>
+          </form>
         </div>
       </div>
     </section>
-
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.1/moment.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.1.2/js/tempusdominus-bootstrap-4.min.js"></script>
+    <!-- Include Tailwind CSS and other scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
 
     <script>
-        $(document).ready(function() {
-            $('#start-timepicker').datetimepicker({
-                format: 'HH:mm',
-            });
-
-            $('#end-timepicker').datetimepicker({
-                format: 'HH:mm',
-            });
+      $(document).ready(function() {
+        $('#start-timepicker').datetimepicker({
+          format: 'HH:mm',
         });
+
+        $('#end-timepicker').datetimepicker({
+          format: 'HH:mm',
+        });
+      });
     </script>
   </body>
 </html>
