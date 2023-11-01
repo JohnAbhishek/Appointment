@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "netlify-lambda serve functions",
-    "build": "netlify-lambda build functions"
+  "start": "node ./bin/www",
+  "build":"npm run build"
+
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
