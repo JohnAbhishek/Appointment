@@ -3,7 +3,7 @@ var router = express.Router();
 
 var appointments=[
 ]
-var count=0
+var count=1
 router.get('/', function(req, res, next) {
  
   res.render('index', { appointments });
@@ -15,7 +15,7 @@ router.get('/add', function(req, res, next) {
 router.post('/add-appoint', function (req, res, next) {
   console.log(req.body,"req");
   const newAppointment = {
-    Appointmentcount: req.body.title,
+    Appointmentcount: count,
     Time: req.body.starttime,
     EndTime:req.body.endtime
   };
@@ -24,14 +24,17 @@ router.post('/add-appoint', function (req, res, next) {
     res.send("Already that time is allocated Select other")
   }else{
     appointments.push(newAppointment);
+    count++
     res.redirect('/');
   }
   
 });
 
 router.get('/remove-appoint/:id', function (req, res, next) {
-  const appointmentId = req.params.id;
-  const indexToRemove = appointments.findIndex(appointment => appointment.Appointmentcount === appointmentId.toString());
+  const appointmentId = parseInt(req.params.id);
+  console.log('Removing appointment with ID:', req.params.id);
+  const indexToRemove = appointments.findIndex(appointment => appointment.Appointmentcount === appointmentId);
+  console.log('Removing appointment with ID:', indexToRemove);
   if (indexToRemove !== -1) {
     appointments.splice(indexToRemove, 1);
     res.redirect('/');
@@ -43,7 +46,7 @@ router.get('/remove-appoint/:id', function (req, res, next) {
 
 router.get('/edit/:id', function (req, res, next) {
   const appointmentId = parseInt(req.params.id);
-  const appointmentToEdit = appointments.find(appointment => appointment.Appointmentcount === appointmentId.toString());
+  const appointmentToEdit = appointments.find(appointment => appointment.Appointmentcount === appointmentId);
     console.log(appointmentToEdit,"appointment");
   if (!appointmentToEdit) {
     res.status(404).send("Appointment not found");
@@ -54,14 +57,12 @@ router.get('/edit/:id', function (req, res, next) {
 
 router.post('/update-appoint/:id', function (req, res, next) {
   const appointmentId = parseInt(req.params.id);
-  const appointmentToEdit = appointments.find(appointment => appointment.Appointmentcount === appointmentId.toString());
-console.log(req.body,"hiiii");
+  const appointmentToEdit = appointments.find(appointment => appointment.Appointmentcount === appointmentId);
   if (!appointmentToEdit) {
     res.status(404).send("Appointment not found");
   } else {
-    appointmentToEdit.Appointmentcount = req.body.title;
-    appointmentToEdit.Time = req.body.time[0];
-    appointmentToEdit.EndTime = req.body.time[1];
+    appointmentToEdit.Time = req.body.time;
+    appointmentToEdit.EndTime = req.body.endtime;
     res.redirect('/');
   }
 });
