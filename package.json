@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "build": "echo 'No build step required"
+    "build": "echo 'No build step required'"
   },
   "dependencies": {
     "autoprefixer": "^10.4.16",
