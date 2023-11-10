@@ -21,7 +21,7 @@
             <div class="mb-4">
               <label for="start-time" class="block text-sm font-medium text-gray-700">Start Time</label>
               <div class="input-group date" id="start-timepicker" data-target-input="nearest">
-                <input type="text" id="starttime" name="starttime" required
+                <input type="time" id="starttime" name="starttime" required
                   class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
                 <div class="input-group-append" data-target="#start-timepicker" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-clock"></i></div>
@@ -31,7 +31,7 @@
             <div class="mb-4">
               <label for="end-time" class="block text-sm font-medium text-gray-700">End Time</label>
               <div class="input-group date" id="end-timepicker" data-target-input="nearest">
-                <input type="text" id="endtime" name="endtime" required
+                <input type="time" id="endtime" name="endtime" required
                   class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
                 <div class="input-group-append" data-target="#end-timepicker" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-clock"></i></div>
@@ -43,7 +43,12 @@
         </div>
       </div>
     </section>
-    
+    <style>
+  .datetimepicker-input {
+    z-index: 9999; /* Set a higher z-index value */
+  }
+</style>
+
     <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
 
     <script>

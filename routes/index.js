@@ -13,22 +13,28 @@ router.get('/add', function(req, res, next) {
   res.render('addappointment');
 });
 router.post('/add-appoint', function (req, res, next) {
-  console.log(req.body,"req");
+  console.log(req.body, "req");
   const newAppointment = {
     Appointmentcount: count,
     Time: req.body.starttime,
-    EndTime:req.body.endtime
+    EndTime: req.body.endtime
   };
-  const isTimeConflict = appointments.some(appointment => appointment.Time === newAppointment.Time);
-  if(isTimeConflict){
-    res.send("Already that time is allocated Select other")
-  }else{
+
+  const isTimeConflict = appointments.some(appointment =>
+    (newAppointment.Time >= appointment.Time && newAppointment.Time < appointment.EndTime) ||
+    (newAppointment.EndTime > appointment.Time && newAppointment.EndTime <= appointment.EndTime) ||
+    (newAppointment.Time <= appointment.Time && newAppointment.EndTime >= appointment.EndTime)
+  );
+
+  if (isTimeConflict) {
+    res.send("Already that time is allocated. Please select another time.");
+  } else {
     appointments.push(newAppointment);
-    count++
+    count++;
     res.redirect('/');
   }
-  
 });
+
 
 router.get('/remove-appoint/:id', function (req, res, next) {
   const appointmentId = parseInt(req.params.id);
