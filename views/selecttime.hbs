@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    
+    <!-- Include Tailwind CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    
+    <title>Hello, world!</title>
+  </head>
+  <body>
+    <section>
+      <div class="text-center flex-1">
+        <h1 class="text-2xl font-semibold">Time allocated,Select other time</h1>
+      </div>
+      <div class="container mx-auto mt-5">
+        <div class="w-full md:w-1/2 lg:w-1/3 mx-auto">
+          <form action="/add-appoint" method="post">
+         
+            <div class="mb-4">
+              <label for="start-time" class="block text-sm font-medium text-gray-700">Recommended Start Time{{this.recommendedStartTime}}</label>
+              <div class="input-group date" id="start-timepicker" data-target-input="nearest">
+                <input type="time" id="starttime"  value="{{this.recommendedStartTime}}" name="starttime" required
+                  class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
+                <div class="input-group-append" data-target="#start-timepicker" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-4">
+              <label for="end-time" class="block text-sm font-medium text-gray-700">Recommended End Time</label>
+              <div class="input-group date" id="end-timepicker" data-target-input="nearest">
+                <input type="time" id="endtime" value="{{this.recommendedEndTime}}" name="endtime" required
+                  class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
+                <div class="input-group-append" data-target="#end-timepicker" data-toggle="datetimepicker">
+                  <div class="input-group-text"><i class="fa fa-clock"></i></div>
+                </div>
+              </div>
+            </div>
+            <button type="submit" class="w-full px-4 py-2 mt-4 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:ring focus:ring-opacity-50">Add Appointment</button>
+          </form>
+        </div>
+      </div>
+    </section>
+    <style>
+  .datetimepicker-input {
+    z-index: 9999; /* Set a higher z-index value */
+  }
+</style>
+
+    <script src="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.js"></script>
+
+    <script>
+      $(document).ready(function() {
+        $('#start-timepicker').datetimepicker({
+          format: 'HH:mm',
+        });
+
+        $('#end-timepicker').datetimepicker({
+          format: 'HH:mm',
+        });
+      });
+    </script>
+  </body>
+</html>

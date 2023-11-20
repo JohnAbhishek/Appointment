@@ -26,13 +26,10 @@ router.post('/add-appoint', function (req, res, next) {
     (newAppointment.Time <= appointment.Time && newAppointment.EndTime >= appointment.EndTime)
   );
 
-  if (isTimeConflict) {
-    res.send("Already that time is allocated. Please select another time.");
-  } else {
+
     appointments.push(newAppointment);
     count++;
     res.redirect('/');
-  }
 });
 
 
