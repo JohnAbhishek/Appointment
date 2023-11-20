@@ -19,9 +19,9 @@
           <form action="/add-appoint" method="post">
          
             <div class="mb-4">
-              <label for="start-time" class="block text-sm font-medium text-gray-700">Recommended Start Time{{this.recommendedStartTime}}</label>
+              <label for="start-time" class="block text-sm font-medium text-gray-700">Recommended Start Time</label>
               <div class="input-group date" id="start-timepicker" data-target-input="nearest">
-                <input type="time" id="starttime"  value="{{this.recommendedStartTime}}" name="starttime" required
+                <input type="time" id="starttime"  value={{this.recommendedStartTime}} name="starttime" required
                   class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
                 <div class="input-group-append" data-target="#start-timepicker" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-clock"></i></div>
@@ -31,14 +31,14 @@
             <div class="mb-4">
               <label for="end-time" class="block text-sm font-medium text-gray-700">Recommended End Time</label>
               <div class="input-group date" id="end-timepicker" data-target-input="nearest">
-                <input type="time" id="endtime" value="{{this.recommendedEndTime}}" name="endtime" required
+                <input type="time" id="endtime" value={{this.recommendedEndTime}} name="endtime" required
                   class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
                 <div class="input-group-append" data-target="#end-timepicker" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-clock"></i></div>
                 </div>
               </div>
             </div>
-            <button type="submit" class="w-full px-4 py-2 mt-4 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:ring focus:ring-opacity-50">Add Appointment</button>
+            <button type="submit" class="w-full px-4 py-2 mt-4 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:ring focus:ring-opacity-50">Confirm</button>
           </form>
         </div>
       </div>
