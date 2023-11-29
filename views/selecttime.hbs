@@ -10,39 +10,49 @@
     <title>Hello, world!</title>
   </head>
   <body>
-    <section>
-      <div class="text-center flex-1">
-        <h1 class="text-2xl font-semibold">Time allocated,Select other time</h1>
+        <div class="flex h-screen">
+    <!-- Left side: Image (50% width) -->
+    <div class="w-1/3.5">
+      <img src="https://images.axios.com/rseGAk89vuIlIcOMwtFzdPfRUzI=/117x0:1197x1080/1600x1600/2023/01/17/1673986436931.jpg" alt="Image" class="h-full w-full object-cover" />
+    </div>
+
+    <!-- Right side: Content (50% width) -->
+    <div class="w-1/2">
+    <section class="h-full w-full h-screen flex flex-col justify-center items-center">
+      <div class="text-center">
+        <h1 class="text-2xl font-semibold text-4xl">Time allocated,Select other time</h1>
       </div>
       <div class="container mx-auto mt-5">
         <div class="w-full md:w-1/2 lg:w-1/3 mx-auto">
           <form action="/add-appoint" method="post">
          
             <div class="mb-4">
-              <label for="start-time" class="block text-sm font-medium text-gray-700">Recommended Start Time</label>
+              <label for="start-time" class="block text-sm font-medium text-gray-700 text-2xl">Recommended Start Time</label>
               <div class="input-group date" id="start-timepicker" data-target-input="nearest">
                 <input type="time" id="starttime"  value={{this.recommendedStartTime}} name="starttime" required
-                  class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
+                  class="block w-full px-6 py-6 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
                 <div class="input-group-append" data-target="#start-timepicker" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-clock"></i></div>
                 </div>
               </div>
             </div>
             <div class="mb-4">
-              <label for="end-time" class="block text-sm font-medium text-gray-700">Recommended End Time</label>
+              <label for="end-time" class="block text-sm font-medium text-gray-700 text-2xl">Recommended End Time</label>
               <div class="input-group date" id="end-timepicker" data-target-input="nearest">
                 <input type="time" id="endtime" value={{this.recommendedEndTime}} name="endtime" required
-                  class="block w-full px-4 py-2 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
+                  class="block w-full px-6 py-6 mt-1 bg-white border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 focus:ring focus:ring-opacity-50 datetimepicker-input">
                 <div class="input-group-append" data-target="#end-timepicker" data-toggle="datetimepicker">
                   <div class="input-group-text"><i class="fa fa-clock"></i></div>
                 </div>
               </div>
             </div>
-            <button type="submit" class="w-full px-4 py-2 mt-4 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:ring focus:ring-opacity-50">Confirm</button>
+            <button type="submit" class="w-full px-6 py-6 mt-4 font-semibold text-white bg-indigo-600 rounded-md hover:bg-indigo-700 focus:ring focus:ring-opacity-50 text-2xl">Confirm</button>
           </form>
         </div>
       </div>
     </section>
+    </div>
+    </div>
     <style>
   .datetimepicker-input {
     z-index: 9999; /* Set a higher z-index value */
